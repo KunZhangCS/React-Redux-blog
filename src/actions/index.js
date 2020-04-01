@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import jsonPlaceholder from '../apis/jsonPlaceholder';
 
-// #3
+// #3 create a new action.
 export const fetchPostsAndUsers = () => async (dispatch, getState) => {
     await dispatch(fetchPosts());
 
@@ -16,8 +16,6 @@ export const fetchPostsAndUsers = () => async (dispatch, getState) => {
         .forEach(id => dispatch(fetchUser(id)))
         .value();
 };
-
-
 
 export const fetchPosts = () => async dispatch => {
     const response = await jsonPlaceholder.get('/posts');
@@ -40,7 +38,6 @@ export const fetchPosts = () => async dispatch => {
 
 //     dispatch({ type: 'FETCH_USER', payload: response.data} )
 // });
-
 
 // #3 
 export const fetchUser = id => async dispatch => {
